@@ -139,14 +139,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	 * @return list of all employees
 	 */
 	public List<Employee> getAllEmployees() {
+		List<Employee> employees = new ArrayList<>();
+		
 		try(Session session = DBConnectionUtility.getSessionFactory().openSession()) {
-			return session.createQuery("From Employee ORDER BY name", Employee.class)
-						  .setCacheable(true)
-						  .getResultList();
+			employees = session.createQuery("From Employee ORDER BY name", Employee.class)
+						  	   .setCacheable(true)
+						       .getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return employees;
 	}	
 	
 	

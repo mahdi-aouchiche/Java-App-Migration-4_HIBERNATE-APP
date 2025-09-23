@@ -32,6 +32,14 @@ public class DBConnectionUtility {
             settings.put(Environment.URL, "jdbc:mysql://localhost:3306/hibernate_db");
             settings.put(Environment.USER, "root");
             settings.put(Environment.PASS, "3306");
+            
+            // --- Update these lines for AWS RDS instance ---
+            /*
+            settings.put(Environment.URL, "jdbc:mysql://[YOUR_RDS_ENDPOINT]:3306/[YOUR_DATABASE_NAME]");
+            settings.put(Environment.USER, "[YOUR_MASTER_USERNAME]");
+            settings.put(Environment.PASS, "[YOUR_MASTER_PASSWORD]");
+            */
+            
             settings.put("hibernate.connection.pool_size", "30");
             settings.put("hibernate.show_sql", "true");
             settings.put("hibernate.format_sql", "true");
